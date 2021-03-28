@@ -44,5 +44,6 @@ plt.legend()
 
 plt.tight_layout()
 #Focaliza layout
-plt.savefig('plot.png')
+plt.savefig('plot_aula1.png')
+#Salva a figura instantaneamente
 plt.show()
