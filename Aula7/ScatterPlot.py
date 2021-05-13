@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 plt.style.use('seaborn')
 
-data = pd.read_csv('2019-05-31-data.csv')
+data = pd.read_csv('data.csv')
 view_count = data['view_count']
 likes = data['likes']
 ratio = data['ratio']

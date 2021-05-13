@@ -2,8 +2,6 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 # Subplots servem para voce ter um controle mais exato do objeot que voce tem ou seja qual axis e qual, se vc quiser configurar mas diretamente figura geral etc.
-fig, ax = plt.subplots()
-
 plt.style.use('seaborn')
 
 data = pd.read_csv('data.csv')
@@ -12,18 +10,28 @@ dev_salaries = data['All_Devs']
 py_salaries = data['Python']
 js_salaries = data['JavaScript']
 
-plt.plot(ages, py_salaries, label='Python')
-plt.plot(ages, js_salaries, label='JavaScript')
+fig, (ax1,ax2) = plt.subplots(nrows=2,ncols=1)
 
-plt.plot(ages, dev_salaries, color='#444444',
+# Agora como voce pode ver eu posso dar mais legendas titulo para cada tracejado, tendo um controle mais imediato de cado tracejado, e definbindo cada um
+
+ax1.plot(ages, dev_salaries, color='#444444',
          linestyle='--', label='All Devs')
+ax2.plot(ages, py_salaries, label='Python')
+ax2.plot(ages, js_salaries, label='JavaScript')
 
-plt.legend()
+ax1.legend()
 
-plt.title('Median Salary (USD) by Age')
-plt.xlabel('Ages')
-plt.ylabel('Median Salary (USD)')
+ax1.set_title('Median Salary (USD) by Age')
+ax1.set_xlabel('Ages')
+ax1.set_ylabel('Median Salary (USD)')
+
+ax2.legend()
+
+ax2.set_title('Median Salary (USD) by Age')
+ax2.set_xlabel('Ages')
+ax2.set_ylabel('Median Salary (USD)')
 
 plt.tight_layout()
+
 
 plt.show()
